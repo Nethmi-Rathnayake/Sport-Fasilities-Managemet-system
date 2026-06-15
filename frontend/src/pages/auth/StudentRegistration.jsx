@@ -40,10 +40,8 @@ export default function StudentRegistration() {
   const [form, setForm] = useState({
     fullName: "",
     nameWithInitials: "",
-    studentId: "",
     primaryPhone: "",
     secondaryPhone: "",
-    dob: "",
     address: "",
   });
 
@@ -186,9 +184,7 @@ export default function StudentRegistration() {
     if (
       !form.fullName ||
       !form.nameWithInitials ||
-      !form.studentId ||
       !form.primaryPhone ||
-      !form.dob ||
       !form.address
     ) {
       alert("Please fill all required fields.");
@@ -217,8 +213,8 @@ export default function StudentRegistration() {
     // =============================================
     // API CALL — POST /api/register
     // Body: FormData { email, fullName, nameWithInitials,
-    //        studentId, primaryPhone, secondaryPhone,
-    //        dob, address, membershipType, clubId, photo }
+    //        primaryPhone, secondaryPhone,
+    //        address, membershipType, clubId, photo }
     // =============================================
     setStep("submitted");
   };
@@ -625,19 +621,6 @@ export default function StudentRegistration() {
               />
             </div>
 
-            <div>
-              <label className="block text-xs font-medium text-gray-500 mb-1">
-                Student ID / Index Number <span className="text-red-500">*</span>
-              </label>
-              <input
-                name="studentId"
-                value={form.studentId}
-                onChange={handleFormChange}
-                placeholder="ASP/IS/2021/001"
-                className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <label className="block text-xs font-medium text-gray-500 mb-1">
@@ -664,19 +647,6 @@ export default function StudentRegistration() {
                   className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
-            </div>
-
-            <div>
-              <label className="block text-xs font-medium text-gray-500 mb-1">
-                Date of Birth <span className="text-red-500">*</span>
-              </label>
-              <input
-                name="dob"
-                type="date"
-                value={form.dob}
-                onChange={handleFormChange}
-                className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
             </div>
 
             <div>
